@@ -31,7 +31,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 /**
- * Unit test for {@link com.patternbox.sandbox.enums.mood.PartyMember} mood transitions.
+ * Unit test for {@link com.patternbox.sandbox.enums.mood.PartyMember} mood transitions.<br>
+ * Naming Convention: [UnitOfWork_StateUnderTest_ExpectedBehavior]
  * 
  * @author <a href='http://www.patternbox.com'>D. Ehms, Patternbox</a>
  */
@@ -41,7 +42,7 @@ public class PartyMemberTest {
 	 * Test method for {@link com.patternbox.sandbox.enums.mood.PartyMember#talk()}.
 	 */
 	@Test
-	public void testTalkingInNeutralMood() {
+	public void talk_InNeutralMood_StillInNeutralMood() {
 		PartyMember member = new PartyMember(Mood.NEUTRAL);
 		assertFalse(member.moodIsGood());
 		assertFalse(member.moodIsBad());
@@ -54,7 +55,7 @@ public class PartyMemberTest {
 	 * Test method for {@link com.patternbox.sandbox.enums.mood.PartyMember#talk()}.
 	 */
 	@Test
-	public void testTalkingInGoodMood() {
+	public void talk_InGoodMood_StillInGoodMood() {
 		PartyMember member = new PartyMember(Mood.GOOD);
 		assertTrue(member.moodIsGood());
 		assertFalse(member.moodIsBad());
@@ -67,7 +68,7 @@ public class PartyMemberTest {
 	 * Test method for {@link com.patternbox.sandbox.enums.mood.PartyMember#talk()}.
 	 */
 	@Test
-	public void testTalkingInBadMood() {
+	public void talk_InBadMood_StillInBadMood() {
 		PartyMember member = new PartyMember(Mood.BAD);
 		assertFalse(member.moodIsGood());
 		assertTrue(member.moodIsBad());
@@ -80,7 +81,7 @@ public class PartyMemberTest {
 	 * Test method for {@link com.patternbox.sandbox.enums.mood.PartyMember#flirt()}.
 	 */
 	@Test
-	public void testFlirtingInNeutralMood() {
+	public void flirt_InNeutralMood_ChangesToGoodMood() {
 		PartyMember member = new PartyMember(Mood.NEUTRAL);
 		assertFalse(member.moodIsGood());
 		assertFalse(member.moodIsBad());
@@ -93,7 +94,7 @@ public class PartyMemberTest {
 	 * Test method for {@link com.patternbox.sandbox.enums.mood.PartyMember#flirt()}.
 	 */
 	@Test
-	public void testFlirtingInGoodMood() {
+	public void flirt_InGoodMood_StillInGoodMood() {
 		PartyMember member = new PartyMember(Mood.GOOD);
 		assertTrue(member.moodIsGood());
 		assertFalse(member.moodIsBad());
@@ -106,7 +107,7 @@ public class PartyMemberTest {
 	 * Test method for {@link com.patternbox.sandbox.enums.mood.PartyMember#flirt()}.
 	 */
 	@Test
-	public void testFlirtingInBadMood() {
+	public void flirt_InNeutralMood_ChangesToNeutralMood() {
 		PartyMember member = new PartyMember(Mood.BAD);
 		assertFalse(member.moodIsGood());
 		assertTrue(member.moodIsBad());
@@ -119,7 +120,7 @@ public class PartyMemberTest {
 	 * Test method for {@link com.patternbox.sandbox.enums.mood.PartyMember#annoy()}.
 	 */
 	@Test
-	public void testBeingAnnoyedInNeutralMood() {
+	public void annoy_InNeutralMood_ChangesToBadMood() {
 		PartyMember member = new PartyMember(Mood.NEUTRAL);
 		assertFalse(member.moodIsGood());
 		assertFalse(member.moodIsBad());
@@ -132,7 +133,7 @@ public class PartyMemberTest {
 	 * Test method for {@link com.patternbox.sandbox.enums.mood.PartyMember#annoy()}.
 	 */
 	@Test
-	public void testBeingAnnoyedInGoodMood() {
+	public void annoy_InGoodMood_ChangesToBadMood() {
 		PartyMember member = new PartyMember(Mood.GOOD);
 		assertTrue(member.moodIsGood());
 		assertFalse(member.moodIsBad());
@@ -145,7 +146,7 @@ public class PartyMemberTest {
 	 * Test method for {@link com.patternbox.sandbox.enums.mood.PartyMember#annoy()}.
 	 */
 	@Test
-	public void testBeingAnnoyedInBadMood() {
+	public void annoy_InBadMood_StillInBadMood() {
 		PartyMember member = new PartyMember(Mood.BAD);
 		assertFalse(member.moodIsGood());
 		assertTrue(member.moodIsBad());
