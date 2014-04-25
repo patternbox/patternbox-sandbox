@@ -31,19 +31,19 @@ package com.patternbox.sandbox.enums.light;
 public enum LightState {
 	OFF(new LightOff()), ON(new LightOn());
 
-	private final LightStateOps stateImpl;
+	private final LightStateOps stateOps;
 
 	/**
-	 * @param ops
+	 * @param stateOps
 	 */
-	LightState(LightStateOps ops) {
-		stateImpl = ops;
+	LightState(LightStateOps stateOps) {
+		this.stateOps = stateOps;
 	}
 
 	/**
 	 * @see com.patternbox.sandbox.enums.light.LightStateOps#toggle()
 	 */
 	public LightState toggle() {
-		return stateImpl.toggle();
+		return stateOps.toggle();
 	}
 }
